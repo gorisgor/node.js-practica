@@ -15,3 +15,6 @@ export const updateProduct = async (id, payload) => {
     new: true,
   });
 };
+export const deleteProduct = async (productId) => {
+  return await ProductsCollection.findOneAndDelete({ _id: productId });
+};
