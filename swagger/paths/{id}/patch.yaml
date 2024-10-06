@@ -1,18 +1,22 @@
 tags:
   - Products
-summary: Create product
-operationId: createProduct
-description: 'Create a product with payload'
+summary: Get product by id
+operationId: patchProduct
+description: 'Get product by id'
 security:
   - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+      example: '65ca67e7ae7f10c88b598384'
 requestBody:
   content:
     multipart/form-data:
       schema:
         type: object
-        required:
-          - price
-          - category
         properties:
           name:
             description: "Product's name"
@@ -32,8 +36,8 @@ requestBody:
             type: string
             example: 'Best phone'
 responses:
-  '201':
-    description: Creates a product
+  '200':
+    description: 'Get product by id'
     content:
       application/json:
         schema:
@@ -45,16 +49,18 @@ responses:
           properties:
             status:
               type: integer
-              example: 201
+              example: 200
             message:
               type: string
-              example: Successfully created a product!
+              example: Successfully found product with id 65ca67e7ae7f10c88b598384!
             data:
               type: object
-              $ref: '../components/schemas/product.yaml'
+              $ref: '../../components/schemas/product.yaml'
   '400':
-    $ref: ..\components\responses\400.yaml
+    $ref: '../../components/responses/400.yaml'
   '401':
-    $ref: '../components/responses/401.yaml'
+    $ref: '../../components/responses/401.yaml'
+  '404':
+    $ref: '../../components/responses/404.yaml'
   '500':
-    $ref: ..\components\responses\500.yaml
+    $ref: '../../components/responses/500.yaml'
