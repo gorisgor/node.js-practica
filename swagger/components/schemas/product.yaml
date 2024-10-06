@@ -1,0 +1,27 @@
+type: object
+required:
+  - _id
+  - name
+  - price
+  - category
+properties:
+  _id:
+    description: "Product's id"
+    type: string
+    example: 65e4decdd286b30065d54af9
+  name:
+    description: "Product's name"
+    type: string
+    example: 'John Doe'
+  price:
+    description: "Product's age"
+    type: number
+    example: 12
+  category:
+    description: "Product's age"
+    type: string
+    enum: ['books', 'electronics', 'clothing', 'other']
+    example: other
+  description:
+    description: 'Product description'
+    type: string
