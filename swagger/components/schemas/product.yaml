@@ -12,7 +12,7 @@ properties:
   name:
     description: "Product's name"
     type: string
-    example: 'John Doe'
+    example: 'Products name'
   price:
     description: "Product's age"
     type: number
